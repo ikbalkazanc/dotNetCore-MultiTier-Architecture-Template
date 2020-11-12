@@ -1,0 +1,35 @@
+﻿@model IEnumerable<CategoryDto>
+@{
+    ViewData["Title"] = "List";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th  scope="col">Id</th>
+            <th  scope="col">Name</th>
+            <th  scope="col"> </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+        <tr>
+            <td>
+                @item.Id
+            </td>
+            <td>
+                @item.Name
+            </td>
+            <td>
+                <a asp-action="Update" class="btn btn-warning" asp-route-id="@item.Id"> Güncelle</a>
+                <a asp-action="Delete" class="btn btn-danger" asp-route-id="@item.Id"> Sil</a>
+            </td>
+            
+
+        </tr>
+        }
+    </tbody>
+</table>
