@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using API.Middleware;
 using AutoMapper;
 using Core.Repositories;
 using Core.Services;
@@ -57,8 +58,10 @@ namespace API
             }
 
             app.UseRouting();
-
+            
             app.UseAuthorization();
+
+            app.UseMiddleware<PerformanceMiddleware>();
 
             app.UseEndpoints(endpoints =>
             {
